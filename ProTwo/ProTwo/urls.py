@@ -19,6 +19,6 @@ from django.conf.urls import include#import the include()
 from AppTwo import views #import views.py
 urlpatterns = [
     url(r'^$',views.index,name="index"),#what we add to the list
-    url(r'^help/',include('AppTwo.urls')),
+    url(r'^user/',include('AppTwo.urls')),
     url(r'^admin/', admin.site.urls),
 ]

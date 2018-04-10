@@ -1,4 +1,5 @@
 <!doctype html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -76,7 +77,25 @@
   </head>
   <body>
     <div class="container">
-      {{insert_me}}
+      {% if user %}
+        <table>
+          <thead>
+            <th>Last name</th>
+            <th>First name</th>
+            <th>Email</th>
+          </thead>
+          {% for u in user %}
+          <tr>
+            <td>{{u.last_name}}</td>
+            <td>{{u.first_name}}</td>
+            <td>{{u.email}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No user data</p>
+      {% endif %}
+
       <div id="loginDiv">
       	<div class="simpleLogo">
       		<img src="http://how2j.cn/tmall/img/site/simpleLogo.png">

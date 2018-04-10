@@ -13,7 +13,22 @@
   </head>
   <body>
     <div class="aliPayPageDiv container text-center mt-3">
-        {{insert_me}}
+        {% if accss_records %}
+          <table>
+            <thead>
+              <th>Site name</th>
+              <th>Date Accessd</th>
+            </thead>
+            {% for acc in accss_records %}
+            <tr>
+              <td>{{acc.name}}</td>
+              <td>{{acc.date}}</td>
+            </tr>
+            {% endfor %}        <!-- end for loop -->
+          </table>
+        {% else %}
+          <p>No access data</p>
+        {% endif %}
         <img src="{% static "images\crown fish.jpg" %}" alt="crown fish">
        	<div class="aliPayPageLogo text-left mb-5">
        		<img src="http://how2j.cn/tmall/img/site/simpleLogo.png" class="pull-left">
